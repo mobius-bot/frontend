@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages /home";
+import Home from "./pages/home";
 import { createAppKit } from "@reown/appkit/react";
 import { SolanaAdapter } from "@reown/appkit-adapter-solana/react";
 import { solana, solanaTestnet, solanaDevnet } from "@reown/appkit/networks";
@@ -7,7 +7,7 @@ import {
   PhantomWalletAdapter,
   SolflareWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
-import MarketPlace from "./pages /marketplace";
+import MarketPlace from "./pages/marketplace";
 
 function App() {
   // 0. Set up Solana Adapter
