@@ -1,17 +1,34 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { BotRentModal } from "@/components/bot-rent-modal"
-import { BotBuyModal } from "@/components/bot-buy-modal"
-import { TrendingUp, Calendar, User, Star, BarChart2, Activity, Info } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { BotRentModal } from "@/components/bot-rent-modal";
+import { BotBuyModal } from "@/components/bot-buy-modal";
+import {
+  TrendingUp,
+  Calendar,
+  User,
+  Star,
+  BarChart2,
+  Activity,
+  Info,
+} from "lucide-react";
+import Header from "@/_components/Header";
 
 export default function BotDetail({ params }: { params: { id: string } }) {
   // In a real app, you would fetch the bot data based on the ID
   const bot = {
     id: params.id,
     name: "Arbitrage Ace",
-    description: "Spot and execute price differences across Sonic DEXs for consistent profits",
+    description:
+      "Spot and execute price differences across Sonic DEXs for consistent profits",
     longDescription:
       "Arbitrage Ace is an advanced trading bot that monitors multiple DEXs on the Sonic SVM blockchain to identify price discrepancies. When it finds a profitable opportunity, it executes trades to capitalize on the difference, generating returns with minimal risk. The bot uses sophisticated algorithms to factor in gas fees and slippage to ensure each trade is profitable.",
     roi: "7%",
@@ -31,11 +48,12 @@ export default function BotDetail({ params }: { params: { id: string } }) {
       { date: "May", value: 7.8 },
       { date: "Jun", value: 8.2 },
     ],
-  }
+  };
 
   return (
-    <div className="container py-10">
-      <div className="grid gap-6 lg:grid-cols-3">
+    <div className="container">
+      <Header />
+      <div className="grid gap-6 lg:grid-cols-3 p-4">
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white">
@@ -48,13 +66,13 @@ export default function BotDetail({ params }: { params: { id: string } }) {
           </div>
 
           <Tabs defaultValue="overview">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="performance">Performance</TabsTrigger>
-              <TabsTrigger value="settings">Settings</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 bg-gray-400/10 rounded-lg overflow-hidden">
+              <TabsTrigger value="overview" className="">Overview</TabsTrigger>
+              <TabsTrigger value="performance" className="">Performance</TabsTrigger>
+              <TabsTrigger value="settings" className="">Settings</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="space-y-6 pt-4">
-              <Card>
+              <Card className="bg-gray-400/10 text-white border border-white/20">
                 <CardHeader>
                   <CardTitle className="text-xl">About this Bot</CardTitle>
                 </CardHeader>
@@ -63,7 +81,7 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-gray-400/10 text-white border border-white/20">
                 <CardHeader>
                   <CardTitle className="text-xl">Features</CardTitle>
                 </CardHeader>
@@ -145,7 +163,7 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-gray-400/10 text-white border border-white/20">
                 <CardHeader>
                   <CardTitle className="text-xl">Bot Information</CardTitle>
                 </CardHeader>
@@ -153,7 +171,9 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="flex items-center gap-2">
                       <User className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm">Developer: {bot.developer}</span>
+                      <span className="text-sm">
+                        Developer: {bot.developer}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -172,33 +192,42 @@ export default function BotDetail({ params }: { params: { id: string } }) {
               </Card>
             </TabsContent>
             <TabsContent value="performance" className="space-y-6 pt-4">
-              <Card>
+              <Card className="bg-gray-400/10 text-white border border-white/20">
                 <CardHeader>
-                  <CardTitle className="text-xl">Historical Performance</CardTitle>
-                  <CardDescription>Monthly ROI over the last 6 months</CardDescription>
+                  <CardTitle className="text-xl">
+                    Historical Performance
+                  </CardTitle>
+                  <CardDescription>
+                    Monthly ROI over the last 6 months
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="h-80">
                   <div className="h-full w-full flex items-center justify-center">
                     <BarChart2 className="h-40 w-40 text-muted-foreground" />
                     <div className="text-center">
-                      <p className="text-sm text-muted-foreground">Performance chart would be displayed here</p>
+                      <p className="text-sm text-muted-foreground">
+                        Performance chart would be displayed here
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="settings" className="space-y-6 pt-4">
-              <Card>
+              <Card className="bg-gray-400/10 text-white border border-white/20">
                 <CardHeader>
                   <CardTitle className="text-xl">Bot Settings</CardTitle>
-                  <CardDescription>Configure bot parameters after purchase</CardDescription>
+                  <CardDescription>
+                    Configure bot parameters after purchase
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-center h-40">
                     <div className="text-center space-y-2">
                       <Info className="h-10 w-10 text-muted-foreground mx-auto" />
                       <p className="text-sm text-muted-foreground">
-                        Settings will be available after renting or purchasing this bot
+                        Settings will be available after renting or purchasing
+                        this bot
                       </p>
                     </div>
                   </div>
@@ -209,7 +238,7 @@ export default function BotDetail({ params }: { params: { id: string } }) {
         </div>
 
         <div className="space-y-6">
-          <Card>
+          <Card className="bg-gray-400/10 text-white border border-white/20">
             <CardHeader>
               <CardTitle>Pricing</CardTitle>
             </CardHeader>
@@ -217,7 +246,7 @@ export default function BotDetail({ params }: { params: { id: string } }) {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="font-medium">Monthly ROI:</span>
-                  <Badge variant="outline" className="font-bold">
+                  <Badge variant="outline" className="font-bold bg-green-500/20 text-green-500 border border-green-500">
                     {bot.roi}
                   </Badge>
                 </div>
@@ -238,7 +267,7 @@ export default function BotDetail({ params }: { params: { id: string } }) {
             </CardFooter>
           </Card>
 
-          <Card>
+          <Card className="bg-gray-400/10 text-white border border-white/20">
             <CardHeader>
               <CardTitle>How It Works</CardTitle>
             </CardHeader>
@@ -249,8 +278,12 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                     1
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium leading-none">Connect your wallet</p>
-                    <p className="text-sm text-muted-foreground">Link your Solana-compatible wallet</p>
+                    <p className="font-medium leading-none">
+                      Connect your wallet
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Link your Solana-compatible wallet
+                    </p>
                   </div>
                 </li>
                 <li className="flex gap-2">
@@ -258,8 +291,12 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                     2
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium leading-none">Rent or buy the bot</p>
-                    <p className="text-sm text-muted-foreground">Pay with $SONIC or stablecoins</p>
+                    <p className="font-medium leading-none">
+                      Rent or buy the bot
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Pay with $SONIC or stablecoins
+                    </p>
                   </div>
                 </li>
                 <li className="flex gap-2">
@@ -267,8 +304,12 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                     3
                   </div>
                   <div className="space-y-1">
-                    <p className="font-medium leading-none">Configure settings</p>
-                    <p className="text-sm text-muted-foreground">Set your risk level and trade size</p>
+                    <p className="font-medium leading-none">
+                      Configure settings
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Set your risk level and trade size
+                    </p>
                   </div>
                 </li>
                 <li className="flex gap-2">
@@ -277,7 +318,9 @@ export default function BotDetail({ params }: { params: { id: string } }) {
                   </div>
                   <div className="space-y-1">
                     <p className="font-medium leading-none">Start trading</p>
-                    <p className="text-sm text-muted-foreground">Bot begins executing trades automatically</p>
+                    <p className="text-sm text-muted-foreground">
+                      Bot begins executing trades automatically
+                    </p>
                   </div>
                 </li>
               </ol>
@@ -286,6 +329,5 @@ export default function BotDetail({ params }: { params: { id: string } }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

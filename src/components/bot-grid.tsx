@@ -98,10 +98,10 @@ export function BotGrid() {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {bots.map((bot) => (
-        <Card key={bot.id} className="overflow-hidden">
-          <CardHeader className={`bg-gradient-to-r ${bot.color} text-white`}>
+        <Card key={bot.id} className="overflow-hidden bg-gray-400/10 text-white border border-white/20 py-0">
+          <CardHeader className={`bg-gradient-to-r text-white ${bot.color} p-4`}>
             <div className="flex justify-between items-start">
-              <CardTitle className="text-lg">{bot.name}</CardTitle>
+              <CardTitle className={`text-lg`}>{bot.name}</CardTitle>
               <bot.icon className="h-5 w-5" />
             </div>
             <CardDescription className="text-white/80">{bot.strategy} Strategy</CardDescription>
@@ -110,7 +110,7 @@ export function BotGrid() {
             <div className="space-y-4">
               <div className="flex justify-between">
                 <span className="text-sm font-medium">ROI (Monthly)</span>
-                <Badge variant="outline" className="font-bold">
+                <Badge variant="outline" className="font-bold bg-green-500/20 text-green-500 border border-green-500">
                   {bot.roi}
                 </Badge>
               </div>
@@ -129,7 +129,7 @@ export function BotGrid() {
           </CardContent>
           <CardFooter className="flex gap-2 p-6 pt-0">
             <a href={`/marketplace/bot/${bot.id}`} className="w-full">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full text-green-400 bg-transparent cursor-pointer border-green-400 hover:bg-green-300/10">
                 Details
               </Button>
             </a>

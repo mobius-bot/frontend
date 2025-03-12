@@ -14,7 +14,7 @@ export function BotFilter() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col gap-4 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row py-4 text-white">
         <div className="relative flex-1">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input type="search" placeholder="Search bots..." className="w-full pl-8" />
@@ -23,7 +23,7 @@ export function BotFilter() {
           variant="outline"
           size="icon"
           onClick={() => setShowFilters(!showFilters)}
-          className="h-10 w-10 shrink-0 sm:w-10"
+          className="h-10 w-10 shrink-0 sm:w-10 text-gray-400 bg-transparent cursor-pointer border-gray-400"
         >
           <SlidersHorizontal className="h-4 w-4" />
           <span className="sr-only">Toggle filters</span>
@@ -42,7 +42,7 @@ export function BotFilter() {
         </Select>
       </div>
       {showFilters && (
-        <div className="grid gap-4 rounded-lg border p-4 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-4 rounded-lg border p-4 sm:grid-cols-2 md:grid-cols-4 mb-4">
           <div className="space-y-2">
             <Label htmlFor="strategy">Strategy</Label>
             <Select>

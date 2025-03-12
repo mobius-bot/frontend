@@ -30,7 +30,7 @@ export function BotBuyModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full text-green-400 bg-transparent cursor-pointer border-green-400 hover:bg-green-300/10">
           <ShoppingCart className="mr-2 h-4 w-4" />
           Buy Bot
         </Button>
